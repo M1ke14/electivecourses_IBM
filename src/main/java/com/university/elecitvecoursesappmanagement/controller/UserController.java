@@ -46,12 +46,12 @@ public class UserController {
 
     @PostMapping("/addUser")
     public ResponseEntity<User> addUser(@RequestBody User user) {
-        try {
-            User userObj = userRepo.save(user);
-            return new ResponseEntity<>(userObj, HttpStatus.CREATED);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+            try {
+                User userObj = userRepo.save(user);
+                return new ResponseEntity<>(userObj, HttpStatus.CREATED);
+            } catch (Exception e) {
+                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            }
     }
 
     @PostMapping("/updateUser/{id}")

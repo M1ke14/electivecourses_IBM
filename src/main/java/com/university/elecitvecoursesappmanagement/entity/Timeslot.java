@@ -1,10 +1,11 @@
 package com.university.elecitvecoursesappmanagement.entity;
 
 import jakarta.persistence.*;
+import jdk.jfr.Enabled;
 import lombok.*;
 
 @Entity
-@Table(name = "timeslot")
+@Table(name="timeslot")
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
