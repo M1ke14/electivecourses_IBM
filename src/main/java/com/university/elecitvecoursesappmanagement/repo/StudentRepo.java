@@ -1,10 +1,9 @@
 package com.university.elecitvecoursesappmanagement.repo;
 
-import com.university.elecitvecoursesappmanagement.entity.User;
+import com.university.elecitvecoursesappmanagement.entity.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepo extends JpaRepository<User, Long> {
-
+public interface StudentRepo extends JpaRepository<Student, Long> {
 }
