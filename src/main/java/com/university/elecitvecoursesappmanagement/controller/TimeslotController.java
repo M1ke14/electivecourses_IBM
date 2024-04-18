@@ -62,6 +62,8 @@ public class TimeslotController {
                 Timeslot updateTimeslotData = timeslotData.get();
                 updateTimeslotData.setBeginTime(timeslot.getBeginTime());
                 updateTimeslotData.setEndTime(timeslot.getEndTime());
+                updateTimeslotData.setWeekDay(timeslot.getWeekDay());
+                updateTimeslotData.setUser(timeslot.getUser());
 
                 Timeslot timeslotObj = timeslotRepo.save(updateTimeslotData);
                 return new ResponseEntity<>(timeslotObj, HttpStatus.CREATED);

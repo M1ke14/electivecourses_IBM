@@ -63,7 +63,8 @@ public class DisciplineController {
                 updateDisciplineData.setMaxStudents(discipline.getMaxStudents());
                 updateDisciplineData.setStudyYear(discipline.getStudyYear());
                 updateDisciplineData.setCategory(discipline.getCategory());
-
+                updateDisciplineData.setTeacher(discipline.getTeacher());
+                updateDisciplineData.setEnrollments(discipline.getEnrollments());
 
                 Discipline disciplineObj = disciplineRepo.save(updateDisciplineData);
                 return new ResponseEntity<>(discipline, HttpStatus.CREATED);

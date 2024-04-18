@@ -61,6 +61,8 @@ public class EnrollmentController {
             if(enrollmentData.isPresent()) {
                 Enrollment updateEnrollmentData = enrollmentData.get();
                 updateEnrollmentData.setPriority(enrollment.getPriority());
+                updateEnrollmentData.setStudent(enrollment.getStudent());
+                updateEnrollmentData.setDiscipline(enrollment.getDiscipline());
 
                 Enrollment enrollmentObj = enrollmentRepo.save(updateEnrollmentData);
                 return new ResponseEntity<>(enrollmentObj, HttpStatus.CREATED);

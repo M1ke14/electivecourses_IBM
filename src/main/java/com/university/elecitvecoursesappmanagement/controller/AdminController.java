@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/admin")
 public class AdminController {
     @Autowired
     AdminRepo adminRepo;
@@ -21,7 +21,7 @@ public class AdminController {
     public ResponseEntity<List<Admin>> getAllAdmins() {
         try {
             List<Admin> adminList = new ArrayList<>();
-            adminRepo.findAll().forEach(adminList::add);
+            adminRepo.findAll().forEach(adminList::add); // return AdminRepo.forEach
 
             if(adminList.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.OK);
@@ -59,6 +59,7 @@ public class AdminController {
             Optional<Admin> adminData = adminRepo.findById(id);
             if(adminData.isPresent()) {
                 Admin updateAdminData = adminData.get();
+                updateAdminData.setUser(admin.getUser());
 
                 Admin adminObj = adminRepo.save(updateAdminData);
                 return new ResponseEntity<>(adminObj, HttpStatus.CREATED);

@@ -64,6 +64,7 @@ public class StudentController {
                 updateStudentData.setGrade(student.getGrade());
                 updateStudentData.setStudyYear(student.getStudyYear());
                 updateStudentData.setFacultySection(student.getFacultySection());
+                updateStudentData.setEnrollments(student.getEnrollments());
 
                 Student studentObj = studentRepo.save(updateStudentData);
                 return new ResponseEntity<>(studentObj, HttpStatus.CREATED);

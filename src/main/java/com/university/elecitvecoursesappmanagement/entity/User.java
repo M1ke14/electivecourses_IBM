@@ -1,16 +1,10 @@
 package com.university.elecitvecoursesappmanagement.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
 
 @Entity
 @Table(name="users")
-@NoArgsConstructor
-@AllArgsConstructor
-@Setter
-@Getter
-@ToString
-public class User {
+public abstract class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -20,4 +14,47 @@ public class User {
 
     @Column
     private String userType;
+
+    public User () {
+
+    }
+
+    public User(Long id, String name, String userType) {
+        this.id = id;
+        this.name = name;
+        this.userType = userType;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", userType='" + userType + '\'' +
+                '}';
+    }
 }

@@ -2,15 +2,9 @@ package com.university.elecitvecoursesappmanagement.entity;
 
 import jakarta.persistence.*;
 import jdk.jfr.Enabled;
-import lombok.*;
 
 @Entity
 @Table(name="timeslot")
-@NoArgsConstructor
-@AllArgsConstructor
-@Setter
-@Getter
-@ToString
 public class Timeslot {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,4 +22,67 @@ public class Timeslot {
     @OneToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+    public Timeslot() {
+
+    }
+
+    public Timeslot(Long id, int beginTime, int endTime, String weekDay, User user) {
+        this.id = id;
+        this.beginTime = beginTime;
+        this.endTime = endTime;
+        this.weekDay = weekDay;
+        this.user = user;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public int getBeginTime() {
+        return beginTime;
+    }
+
+    public void setBeginTime(int beginTime) {
+        this.beginTime = beginTime;
+    }
+
+    public int getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(int endTime) {
+        this.endTime = endTime;
+    }
+
+    public String getWeekDay() {
+        return weekDay;
+    }
+
+    public void setWeekDay(String weekDay) {
+        this.weekDay = weekDay;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "Timeslot{" +
+                "id=" + id +
+                ", beginTime=" + beginTime +
+                ", endTime=" + endTime +
+                ", weekDay='" + weekDay + '\'' +
+                ", user=" + user +
+                '}';
+    }
 }
