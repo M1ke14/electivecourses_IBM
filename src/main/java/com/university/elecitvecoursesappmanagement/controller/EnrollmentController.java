@@ -1,8 +1,7 @@
 package com.university.elecitvecoursesappmanagement.controller;
 
 import com.university.elecitvecoursesappmanagement.entity.Enrollment;
-import com.university.elecitvecoursesappmanagement.entity.User;
-import com.university.elecitvecoursesappmanagement.repo.EnrollmentRepo;
+import com.university.elecitvecoursesappmanagement.service.EnrollmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,84 +12,42 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/enrollment")
 public class EnrollmentController {
     @Autowired
-    EnrollmentRepo enrollmentRepo;
+    private final EnrollmentService enrollmentService;
 
-    @GetMapping("/getAllEnrollments")
-    public ResponseEntity<List<Enrollment>> getAllEnrollments() {
-        try {
-            List<Enrollment> enrollmentList = new ArrayList<>();
-            enrollmentRepo.findAll().forEach(enrollmentList::add);
-
-            if(enrollmentList.isEmpty()) {
-                return new ResponseEntity<>(HttpStatus.OK);
-            }
-
-            return new ResponseEntity<>(enrollmentList, HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+    public EnrollmentController(EnrollmentService enrollmentService) {
+        this.enrollmentService = enrollmentService;
     }
 
-    @GetMapping("/getEnrollmentById")
-    public ResponseEntity<Enrollment> getEnrollmentById(@PathVariable Long id) {
-        Optional<Enrollment> enrollmentObj = enrollmentRepo.findById(id);
-        if(enrollmentObj.isPresent()) {
-            return new ResponseEntity<>(enrollmentObj.get(), HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+    @GetMapping("/getAllEnrollments")
+    public List<Enrollment> getAllEnrollments() {
+        return enrollmentService.getAllEnrollments();
+    }
+
+    @GetMapping("/getEnrollmentById/{id}")
+    public Optional<Enrollment> getEnrollmentById(@PathVariable Long id) {
+        return enrollmentService.getEnrollmentById(id);
     }
 
     @PostMapping("/addEnrollment")
-    public ResponseEntity<Enrollment> addEnrollment(@RequestBody Enrollment enrollment) {
-        try {
-            Enrollment enrollmentObj = enrollmentRepo.save(enrollment);
-            return new ResponseEntity<>(enrollmentObj, HttpStatus.CREATED);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+    public Enrollment addEnrollment(@RequestBody Enrollment enrollment) {
+        return enrollmentService.addEnrollment(enrollment);
     }
 
     @PostMapping("/updateEnrollment/{id}")
-    public ResponseEntity<Enrollment> updateEnrollment(@PathVariable Long id, @RequestBody Enrollment enrollment) {
-        try {
-            Optional<Enrollment> enrollmentData = enrollmentRepo.findById(id);
-            if(enrollmentData.isPresent()) {
-                Enrollment updateEnrollmentData = enrollmentData.get();
-                updateEnrollmentData.setPriority(enrollment.getPriority());
-                updateEnrollmentData.setStudent(enrollment.getStudent());
-                updateEnrollmentData.setDiscipline(enrollment.getDiscipline());
-
-                Enrollment enrollmentObj = enrollmentRepo.save(updateEnrollmentData);
-                return new ResponseEntity<>(enrollmentObj, HttpStatus.CREATED);
-            }
-
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+    public Enrollment updateEnrollment(@PathVariable Long id, @RequestBody Enrollment enrollment) {
+        return enrollmentService.updateEnrollment(id, enrollment);
     }
 
     @DeleteMapping("/deleteEnrollmentById/{id}")
-    public ResponseEntity<HttpStatus> deleteEnrollment(@PathVariable Long id) {
-        try {
-            enrollmentRepo.deleteById(id);
-            return new ResponseEntity<>(HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+    public void deleteEnrollment(@PathVariable Long id) {
+        enrollmentService.deleteEnrollmentById(id);
     }
 
     @DeleteMapping("/deleteAllEnrollments")
-    public ResponseEntity<HttpStatus> deleteAllEnrollments() {
-        try {
-            enrollmentRepo.deleteAll();
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+    public void deleteAllEnrollments() {
+        enrollmentService.deleteAllEnrollments();
     }
 }

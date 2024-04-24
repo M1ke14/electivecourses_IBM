@@ -17,10 +17,6 @@ public class Student extends User {
     @Column
     private int studyYear;
 
-    @OneToOne
-    @JoinColumn(name = "user_id")
-    private User user;
-
     @Column
     private String facultySection;
 
@@ -31,31 +27,18 @@ public class Student extends User {
 
     }
 
-    public Student(Long id, float grade, int studyYear, User user, String facultySection, List<Enrollment> enrollments) {
-        this.id = id;
+    public Student(String name, String userType, float grade, int studyYear, String facultySection, List<Enrollment> enrollments) {
+        super(name, userType);
         this.grade = grade;
         this.studyYear = studyYear;
-        this.user = user;
         this.facultySection = facultySection;
         this.enrollments = enrollments;
     }
 
-    public Student(Long id, String name, String userType, Long id1, float grade, int studyYear, User user, String facultySection, List<Enrollment> enrollments) {
-        super(id, name, userType);
-        this.id = id1;
-        this.grade = grade;
-        this.studyYear = studyYear;
-        this.user = user;
-        this.facultySection = facultySection;
-        this.enrollments = enrollments;
-    }
-
-    @Override
     public Long getId() {
         return id;
     }
 
-    @Override
     public void setId(Long id) {
         this.id = id;
     }
@@ -74,14 +57,6 @@ public class Student extends User {
 
     public void setStudyYear(int studyYear) {
         this.studyYear = studyYear;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     public String getFacultySection() {
@@ -106,7 +81,6 @@ public class Student extends User {
                 "id=" + id +
                 ", grade=" + grade +
                 ", studyYear=" + studyYear +
-                ", user=" + user +
                 ", facultySection='" + facultySection + '\'' +
                 ", enrollments=" + enrollments +
                 '}';

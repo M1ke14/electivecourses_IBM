@@ -1,97 +1,52 @@
 package com.university.elecitvecoursesappmanagement.controller;
 
+import com.university.elecitvecoursesappmanagement.entity.Discipline;
 import com.university.elecitvecoursesappmanagement.entity.Timeslot;
-import com.university.elecitvecoursesappmanagement.repo.TimeslotRepo;
+import com.university.elecitvecoursesappmanagement.entity.User;
+import com.university.elecitvecoursesappmanagement.service.implementation.TimeslotServiceImplementation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Time;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/timeslot")
 public class TimeslotController {
     @Autowired
-    TimeslotRepo timeslotRepo;
+    private final TimeslotServiceImplementation timeslotServiceImplementation;
+
+    public TimeslotController(TimeslotServiceImplementation timeslotServiceImplementation) {
+        this.timeslotServiceImplementation = timeslotServiceImplementation;
+    }
 
     @GetMapping("/getAllTimeslots")
-    public ResponseEntity<List<Timeslot>> getAllTimeslots() {
-        try {
-            List<Timeslot> timeslotList = new ArrayList<>();
-            timeslotRepo.findAll().forEach(timeslotList::add);
-
-            if(timeslotList.isEmpty()) {
-                return new ResponseEntity<>(HttpStatus.OK);
-            }
-
-            return new ResponseEntity<>(timeslotList, HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+    public List<Timeslot> getAllTimeslots() {
+        return timeslotServiceImplementation.getAllTimeslot();
     }
 
     @GetMapping("/getTimeslotById/{id}")
-    public ResponseEntity<Timeslot> getTimeslotById(@PathVariable Long id) {
-        Optional<Timeslot> timeslotObj = timeslotRepo.findById(id);
-        if(timeslotObj.isPresent()) {
-            return new ResponseEntity<>(timeslotObj.get(), HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+    public Optional<Timeslot> getTimeslotById(@PathVariable Long id) {
+        return timeslotServiceImplementation.getTimeslotById(id);
     }
 
     @PostMapping("/addTimeslot")
-    public ResponseEntity<Timeslot> addTimeslot(@RequestBody Timeslot timeslot) {
-        try {
-            Timeslot timeslotObj = timeslotRepo.save(timeslot);
-            return new ResponseEntity<>(timeslotObj, HttpStatus.CREATED);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+    public Timeslot addTimeslot(@RequestBody Timeslot timeslot) {
+        return timeslotServiceImplementation.addTimeslot(timeslot);
     }
 
     @PostMapping("/updateTimeslot/{id}")
-    public ResponseEntity<Timeslot> updateTimeslot(@PathVariable Long id, @RequestBody Timeslot timeslot) {
-        try {
-            Optional<Timeslot> timeslotData = timeslotRepo.findById(id);
-            if(timeslotData.isPresent()) {
-                Timeslot updateTimeslotData = timeslotData.get();
-                updateTimeslotData.setBeginTime(timeslot.getBeginTime());
-                updateTimeslotData.setEndTime(timeslot.getEndTime());
-                updateTimeslotData.setWeekDay(timeslot.getWeekDay());
-                updateTimeslotData.setUser(timeslot.getUser());
-
-                Timeslot timeslotObj = timeslotRepo.save(updateTimeslotData);
-                return new ResponseEntity<>(timeslotObj, HttpStatus.CREATED);
-            }
-
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+    public Timeslot updateTimeslot(@PathVariable Long id, @RequestBody Timeslot timeslot) {
+        return timeslotServiceImplementation.updateTimeslot(id, timeslot);
     }
 
     @DeleteMapping("/deleteTimeslotById/{id}")
-    public ResponseEntity<HttpStatus> deleteTimeslot(@PathVariable Long id) {
-        try {
-            timeslotRepo.deleteById(id);
-            return new ResponseEntity<>(HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+    public void deleteTimeslot(@PathVariable Long id) {
+        timeslotServiceImplementation.deleteTimeslotById(id);
     }
 
     @DeleteMapping("/deleteAllTimeslots")
-    public ResponseEntity<HttpStatus> deleteAllTimeslots() {
-        try {
-            timeslotRepo.deleteAll();
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+    public void deleteAllTimeslots() {
+        timeslotServiceImplementation.deleteAllTimeslots();
     }
 }

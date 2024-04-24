@@ -2,8 +2,7 @@ package com.university.elecitvecoursesappmanagement.entity;
 
 import jakarta.persistence.*;
 
-@Entity
-@Table(name="users")
+@MappedSuperclass
 public abstract class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,7 +18,7 @@ public abstract class User {
 
     }
 
-    public User(Long id, String name, String userType) {
+    public User(String name, String userType) {
         this.id = id;
         this.name = name;
         this.userType = userType;

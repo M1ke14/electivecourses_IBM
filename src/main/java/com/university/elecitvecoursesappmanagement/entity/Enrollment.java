@@ -10,7 +10,7 @@ public class Enrollment {
     private Long id;
 
     @Column
-    private float priority;
+    private String priority;
 
     @ManyToOne
     @JoinColumn(name = "student_id")
@@ -24,7 +24,7 @@ public class Enrollment {
 
     }
 
-    public Enrollment(Long id, float priority, Student student, Discipline discipline) {
+    public Enrollment(Long id, String priority, Student student, Discipline discipline) {
         this.id = id;
         this.priority = priority;
         this.student = student;
@@ -39,11 +39,11 @@ public class Enrollment {
         this.id = id;
     }
 
-    public float getPriority() {
+    public String getPriority() {
         return priority;
     }
 
-    public void setPriority(float priority) {
+    public void setPriority(String priority) {
         this.priority = priority;
     }
 

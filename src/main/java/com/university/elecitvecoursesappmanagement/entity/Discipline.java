@@ -21,7 +21,7 @@ public class Discipline {
     private int studyYear;
 
     @Column
-    private int category;
+    private String category;
 
     @Column
     private String teacher;
@@ -33,7 +33,7 @@ public class Discipline {
 
     }
 
-    public Discipline(Long id, String name, int maxStudents, int studyYear, int category, String teacher, List<Enrollment> enrollments) {
+    public Discipline(Long id, String name, int maxStudents, int studyYear, String category, String teacher, List<Enrollment> enrollments) {
         this.id = id;
         this.name = name;
         this.maxStudents = maxStudents;
@@ -75,11 +75,11 @@ public class Discipline {
         this.studyYear = studyYear;
     }
 
-    public int getCategory() {
+    public String getCategory() {
         return category;
     }
 
-    public void setCategory(int category) {
+    public void setCategory(String category) {
         this.category = category;
     }
 

@@ -1,7 +1,6 @@
 package com.university.elecitvecoursesappmanagement.entity;
 
 import jakarta.persistence.*;
-import jdk.jfr.Enabled;
 
 @Entity
 @Table(name="timeslot")
@@ -20,19 +19,22 @@ public class Timeslot {
     private String weekDay;
 
     @OneToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "discipline_id")
+    private Discipline discipline;
 
     public Timeslot() {
 
     }
 
-    public Timeslot(Long id, int beginTime, int endTime, String weekDay, User user) {
+    public Timeslot(int beginTime, int endTime, String weekDay, Discipline discipline) {
         this.id = id;
         this.beginTime = beginTime;
         this.endTime = endTime;
         this.weekDay = weekDay;
-        this.user = user;
+        this.discipline = discipline;
+    }
+
+    public Timeslot(int beginTime, int endTime, String weekDay, String disciplineName) {
     }
 
     public Long getId() {
@@ -67,12 +69,12 @@ public class Timeslot {
         this.weekDay = weekDay;
     }
 
-    public User getUser() {
-        return user;
+    public Discipline getDiscipline() {
+        return discipline;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setDiscipline(Discipline discipline) {
+        this.discipline = discipline;
     }
 
     @Override
@@ -82,7 +84,7 @@ public class Timeslot {
                 ", beginTime=" + beginTime +
                 ", endTime=" + endTime +
                 ", weekDay='" + weekDay + '\'' +
-                ", user=" + user +
+                ", discipline=" + discipline +
                 '}';
     }
 }
