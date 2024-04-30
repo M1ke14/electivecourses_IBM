@@ -7,10 +7,6 @@ import java.util.List;
 @Entity
 @Table(name="students")
 public class Student extends User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
     @Column
     private float grade;
 
@@ -33,14 +29,6 @@ public class Student extends User {
         this.studyYear = studyYear;
         this.facultySection = facultySection;
         this.enrollments = enrollments;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public float getGrade() {
@@ -78,7 +66,6 @@ public class Student extends User {
     @Override
     public String toString() {
         return "Student{" +
-                "id=" + id +
                 ", grade=" + grade +
                 ", studyYear=" + studyYear +
                 ", facultySection='" + facultySection + '\'' +
