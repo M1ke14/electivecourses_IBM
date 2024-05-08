@@ -72,6 +72,4 @@ public class StudentDTO {
     public void setFacultySection(String facultySection) {
         this.facultySection = facultySection;
     }
-
-    // Override toString method if needed
 }
