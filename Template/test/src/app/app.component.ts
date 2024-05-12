@@ -10,9 +10,7 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'test';
-  welcomeMessage: string = '';
-
-  updateWelcomeMessage(route: string) {
-    this.welcomeMessage = `Welcome to ${route}!`;
-  }  
+  onStudentButtonClick() {
+    console.log('Student button clicked');
+  }
 }

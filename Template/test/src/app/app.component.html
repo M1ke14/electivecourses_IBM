@@ -1,11 +1,4 @@
-<nav>
-  <ul>
-    <li><a routerLink="/home" (click)="updateWelcomeMessage('Home')">Home</a></li>
-    <li><a routerLink="/about" (click)="updateWelcomeMessage('About')">About</a></li>
-    <li><a routerLink="/admin" (click)="updateWelcomeMessage('Admin Page')">Admin</a></li>
-    <li><a routerLink="/student" (click)="updateWelcomeMessage('Student Page')">Student</a></li>
-  </ul>
-</nav>
-<router-outlet></router-outlet>
-
-<p>{{ welcomeMessage }}</p>
+<div class="button-container">
+  <button (click)="onStudentButtonClick()" class="button button-student" routerLink="/student">Student</button>
+  <button class="button-admin">Admin</button>
+</div>

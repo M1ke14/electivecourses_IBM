@@ -1,0 +1,36 @@
+.button-container {
+    position: relative; /* Position relative for absolute positioning of buttons */
+    height: 100vh; /* This makes the container take up the full viewport height */
+  }
+  
+  .button-student,
+  .button-admin {
+    position: absolute; /* Position buttons absolutely within the container */
+    border: none;
+    border-radius: 5px;
+    font-size: 16px; /* Font size for the buttons */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transition for smooth hover effect */
+  }
+  
+  .button-student {
+    top: 10px; /* Position Student button at the top */
+    left: 10px; /* Position Student button at the left */
+    padding: 20px 40px; /* Padding for the buttons */
+    background-color: #007bff; /* Background color for the Student button */
+    color: white;
+  }
+  
+  .button-admin {
+    top: 10px; /* Position Admin button at the top */
+    right: 10px; /* Position Admin button at the right */
+    padding: 20px 40px; /* Padding for the buttons */
+    background-color: #007bff; /* Background color for the Admin button */
+    color: white;
+  }
+  
+  .button-student:hover,
+  .button-admin:hover {
+    background-color: rgba(0, 123, 255, 0.8); /* Background color on hover */
+  }
+  
