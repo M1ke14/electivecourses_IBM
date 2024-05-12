@@ -1,19 +1,31 @@
 <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
   <ul class="navbar-nav">
-    <li class = "nav-item">
+    <li class="nav-item">
       <a routerLink="students" routerLinkActive="active" class="nav-link"> Student List </a>
     </li>
-    <li class = "nav-item">
+    <li class="nav-item">
       <a routerLink="create-student" routerLinkActive="active" class="nav-link"> Add Student </a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="disciplines" routerLinkActive="active" class="nav-link"> Discipline List </a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="create-discipline" routerLinkActive="active" class="nav-link"> Add Discipline </a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="enrollments" routerLinkActive="active" class="nav-link"> Enrollment List </a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="create-enrollment" routerLinkActive="active" class="nav-link"> Add Enrollment </a>
     </li>
   </ul>
 </nav>
 
-<h1 class="text-center"> {{title}} </h1>
-<div class = "container">
+<h1 class="text-center">{{ title }}</h1>
+<div class="container">
   <router-outlet></router-outlet>
 </div>
-<footer class = "footer">
+<footer class="footer">
   <div class="container">
     <span>All Rights Reserved 2020 &#64;JavaGuides</span>
   </div>

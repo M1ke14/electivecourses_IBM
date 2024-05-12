@@ -1,0 +1,33 @@
+<div class="col-md-6 offset-md-3">
+    <h3>Add Discipline</h3>
+    <form (ngSubmit)="onSubmit()">
+
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" id="name" [(ngModel)]="discipline.name" name="name">
+        </div>
+
+        <div class="form-group">
+            <label>Max Students</label>
+            <input type="number" class="form-control" id="maxStudents" [(ngModel)]="discipline.maxStudents" name="maxStudents">
+        </div>
+
+        <div class="form-group">
+            <label>Study Year</label>
+            <input type="number" class="form-control" id="studyYear" [(ngModel)]="discipline.studyYear" name="studyYear">
+        </div>
+
+        <div class="form-group">
+            <label>Category</label>
+            <input type="text" class="form-control" id="category" [(ngModel)]="discipline.category" name="category">
+        </div>
+
+        <div class="form-group">
+            <label>Teacher</label>
+            <input type="text" class="form-control" id="teacher" [(ngModel)]="discipline.teacher" name="teacher">
+        </div>
+
+        <button class="btn btn-success" type="submit" style="margin-top: 10px;">Submit</button>
+
+    </form>
+</div>

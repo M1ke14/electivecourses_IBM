@@ -1,0 +1,23 @@
+<div class="col-md-6 offset-md-3">
+    <h3>Add Enrollment</h3>
+    <form (ngSubmit)="onSubmit()">
+
+        <div class="form-group">
+            <label>Priority</label>
+            <input type="text" class="form-control" id="priority" [(ngModel)]="enrollment.priority" name="priority">
+        </div>
+
+        <div class="form-group">
+            <label>Student</label>
+            <input type="text" class="form-control" id="student" [(ngModel)]="enrollment.student" name="student">
+        </div>
+
+        <div class="form-group">
+            <label>Discipline</label>
+            <input type="text" class="form-control" id="discipline" [(ngModel)]="enrollment.discipline" name="discipline">
+        </div>
+
+        <button class="btn btn-success" type="submit" style="margin-top: 10px;">Submit</button>
+
+    </form>
+</div>
