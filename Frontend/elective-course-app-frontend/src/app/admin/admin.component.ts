@@ -2,11 +2,11 @@ import { Component,ViewChild,ElementRef,OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'admin',
+  templateUrl: './admin.component.html',
+  styleUrls: ['./admin.component.css']
 })
-export class LoginComponent implements OnInit {
+export class AdminComponent implements OnInit {
   @ViewChild('hidden', { read: ElementRef }) elementRef: ElementRef | undefined;
 
   constructor(
@@ -15,11 +15,5 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {}
 
-  loginAsStudent() {
-    this.router.navigate(['/admin'])
-  }
 
-  loginAsAdmin(){
-    this.router.navigate(['/students'])
-}
 }

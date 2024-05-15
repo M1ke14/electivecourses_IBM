@@ -13,8 +13,10 @@ import { CreateDisciplineComponent } from "./create-discipline/create-discipline
 import { UpdateDisciplineComponent } from "./update-discipline/update-discipline.component";
 import { DisciplineDetailsComponent } from "./discipline-details/discipline-details.component";
 import {LoginComponent} from "./login/login.component";
+import {AdminComponent} from "./admin/admin.component";
 
 const routes: Routes = [
+  { path: 'admin', component: AdminComponent },
   { path: 'login', component: LoginComponent },
   { path: 'students', component: StudentListComponent },
   { path: 'students', component: StudentListComponent },

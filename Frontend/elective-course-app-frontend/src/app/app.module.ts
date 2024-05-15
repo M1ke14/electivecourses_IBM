@@ -18,9 +18,11 @@ import { DisciplineDetailsComponent } from './discipline-details/discipline-deta
 import { DisciplineListComponent } from './discipline-list/discipline-list.component';
 import { UpdateDisciplineComponent } from './update-discipline/update-discipline.component';
 import {LoginComponent} from "./login/login.component";
+import {AdminComponent} from "./admin/admin.component";
 
 @NgModule({
   declarations: [
+    AdminComponent,
     AppComponent,
     LoginComponent,
     StudentListComponent,
