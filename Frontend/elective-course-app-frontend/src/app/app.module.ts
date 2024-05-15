@@ -17,10 +17,12 @@ import { CreateDisciplineComponent } from './create-discipline/create-discipline
 import { DisciplineDetailsComponent } from './discipline-details/discipline-details.component';
 import { DisciplineListComponent } from './discipline-list/discipline-list.component';
 import { UpdateDisciplineComponent } from './update-discipline/update-discipline.component';
+import {LoginComponent} from "./login/login.component";
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
     StudentListComponent,
     CreateStudentComponent,
     UpdateStudentComponent,
