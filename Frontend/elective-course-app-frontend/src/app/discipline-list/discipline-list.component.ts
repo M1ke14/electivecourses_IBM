@@ -33,11 +33,9 @@ export class DisciplineListComponent implements OnInit {
   }
 
   deleteDiscipline(id: number | undefined) {
-    this.disciplineService.deleteDiscipline(id).subscribe(() => {
-      console.log("Discipline deleted successfully.");
+    this.disciplineService.deleteDiscipline(id).subscribe(data=> {
+      console.log(data);
       this.getDisciplines();
-    }, error => {
-      console.error("Error deleting discipline:", error);
-    });
+    })
   }
 }

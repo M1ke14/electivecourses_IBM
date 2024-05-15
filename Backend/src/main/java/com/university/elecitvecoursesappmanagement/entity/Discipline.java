@@ -26,8 +26,11 @@ public class Discipline {
     @Column
     private String teacher;
 
-    @OneToMany(mappedBy = "discipline")
+    @OneToMany(mappedBy = "discipline", cascade = CascadeType.ALL)
     private List<Enrollment> enrollments;
+
+    @OneToOne(mappedBy = "discipline", cascade = CascadeType.ALL)
+    private Timeslot timeslot;
 
     public Discipline() {
 
@@ -110,5 +113,13 @@ public class Discipline {
                 ", teacher='" + teacher + '\'' +
                 ", enrollments=" + enrollments +
                 '}';
+    }
+
+    public Timeslot getTimeslot() {
+        return timeslot;
+    }
+
+    public void setTimeslot(Timeslot timeslot) {
+        this.timeslot = timeslot;
     }
 }

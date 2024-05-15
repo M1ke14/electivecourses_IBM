@@ -8,7 +8,7 @@ import { EnrollmentListComponent } from "./enrollment-list/enrollment-list.compo
 import { CreateEnrollmentComponent } from "./create-enrollment/create-enrollment.component";
 import { UpdateEnrollmentComponent } from "./update-enrollment/update-enrollment.component";
 import { EnrollmentDetailsComponent } from "./enrollment-details/enrollment-details.component";
-import { DisciplineListComponent } from "./discipline-list/discipline-list.component"; // Import the discipline components
+import { DisciplineListComponent } from "./discipline-list/discipline-list.component";
 import { CreateDisciplineComponent } from "./create-discipline/create-discipline.component";
 import { UpdateDisciplineComponent } from "./update-discipline/update-discipline.component";
 import { DisciplineDetailsComponent } from "./discipline-details/discipline-details.component";

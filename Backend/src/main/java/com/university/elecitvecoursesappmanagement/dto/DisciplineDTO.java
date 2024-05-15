@@ -1,5 +1,7 @@
 package com.university.elecitvecoursesappmanagement.dto;
 
+import com.university.elecitvecoursesappmanagement.entity.Discipline;
+
 public class DisciplineDTO {
     private Long id;
     private String name;
@@ -8,7 +10,15 @@ public class DisciplineDTO {
     private String category;
     private String teacher;
 
-    public DisciplineDTO() {
+    public DisciplineDTO() {}
+
+    public DisciplineDTO(Discipline discipline) {
+        this.id = discipline.getId();
+        this.name = discipline.getName();
+        this.maxStudents = discipline.getMaxStudents();
+        this.studyYear = discipline.getStudyYear();
+        this.category = discipline.getCategory();
+        this.teacher = discipline.getTeacher();
     }
 
     public Long getId() {

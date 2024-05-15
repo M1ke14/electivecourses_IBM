@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 @Table(name="timeslot")
 public class Timeslot {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
@@ -18,7 +18,7 @@ public class Timeslot {
     @Column
     private String weekDay;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "discipline_id")
     private Discipline discipline;
 
