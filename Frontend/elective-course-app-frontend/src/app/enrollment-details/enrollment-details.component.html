@@ -1,15 +1,10 @@
-<h3>View Enrollment Details</h3>
 <div>
-    <div>
-        <label><b>Id:</b></label> {{enrollment?.id}}
-    </div>
-    <div>
-        <label><b>Priority:</b></label> {{enrollment?.priority}}
-    </div>
-    <div>
-        <label><b>Student:</b></label> {{enrollment?.student}}
-    </div>
-    <div>
-        <label><b>Discipline:</b></label> {{enrollment?.discipline}}
-    </div>
+  <h2>Enrollment Details</h2>
+  <div *ngIf="enrollment">
+    <label><b>Priority:</b></label> {{enrollment.priority}}
+    <br>
+    <label><b>Student Name:</b></label> {{enrollment.studentName}}
+    <br>
+    <label><b>Discipline Name:</b></label> {{enrollment.disciplineName}}
+  </div>
 </div>

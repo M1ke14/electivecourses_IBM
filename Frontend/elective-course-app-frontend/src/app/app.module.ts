@@ -19,6 +19,7 @@ import { DisciplineListComponent } from './discipline-list/discipline-list.compo
 import { UpdateDisciplineComponent } from './update-discipline/update-discipline.component';
 import {LoginComponent} from "./login/login.component";
 import {AdminComponent} from "./admin/admin.component";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import {AdminComponent} from "./admin/admin.component";
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     HttpClientXsrfModule.withOptions({

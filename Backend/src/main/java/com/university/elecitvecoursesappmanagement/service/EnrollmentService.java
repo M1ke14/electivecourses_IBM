@@ -1,15 +1,15 @@
 package com.university.elecitvecoursesappmanagement.service;
 
-import com.university.elecitvecoursesappmanagement.entity.Admin;
+import com.university.elecitvecoursesappmanagement.dto.EnrollmentDTO;
 import com.university.elecitvecoursesappmanagement.entity.Enrollment;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface EnrollmentService {
-    List<Enrollment> getAllEnrollments();
+    List<EnrollmentDTO> getAllEnrollments();
 
-    Optional<Enrollment> getEnrollmentById(Long id);
+    Optional<EnrollmentDTO> getEnrollmentById(Long id);
 
     Enrollment addEnrollment(Enrollment enrollment);
 

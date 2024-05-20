@@ -13,8 +13,8 @@ export class UpdateEnrollmentComponent implements OnInit {
   enrollment: Enrollment = {
     id: 0,
     priority: '',
-    student: '',
-    discipline: ''
+    studentName: '',
+    disciplineName: ''
   };
 
   constructor(

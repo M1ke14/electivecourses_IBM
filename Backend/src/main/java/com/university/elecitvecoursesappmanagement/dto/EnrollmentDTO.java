@@ -7,17 +7,23 @@ import com.university.elecitvecoursesappmanagement.entity.Student;
 public class EnrollmentDTO {
     private Long id;
     private String priority;
-    private Long studentId;
-    private Long disciplineId;
+    private String studentName;
+    private String disciplineName;
 
     public EnrollmentDTO(Enrollment enrollment) {
-        this.id = id;
-        this.priority = priority;
-        this.studentId = studentId;
-        this.disciplineId = disciplineId;
+        this.id = enrollment.getId();
+        this.priority = enrollment.getPriority();
+        this.studentName = enrollment.getStudent().getName();
+        this.disciplineName = enrollment.getDiscipline().getName();
     }
 
-    // Getters and setters
+    public EnrollmentDTO(Long id, String priority, String studentName, String disciplineName) {
+        this.id = id;
+        this.priority = priority;
+        this.studentName = studentName;
+        this.disciplineName = disciplineName;
+    }
+
     public Long getId() {
         return id;
     }
@@ -34,20 +40,19 @@ public class EnrollmentDTO {
         this.priority = priority;
     }
 
-    public Long getStudentId() {
-        return studentId;
+    public String getStudentName() {
+        return studentName;
     }
 
-    public void setStudentId(Long studentId) {
-        this.studentId = studentId;
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
     }
 
-    public Long getDisciplineId() {
-        return disciplineId;
+    public String getDisciplineName() {
+        return disciplineName;
     }
 
-    public void setDisciplineId(Long disciplineId) {
-        this.disciplineId = disciplineId;
+    public void setDisciplineName(String disciplineName) {
+        this.disciplineName = disciplineName;
     }
-
 }

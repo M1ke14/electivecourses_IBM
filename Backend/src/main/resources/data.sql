@@ -16,11 +16,11 @@ VALUES
     ('Chemical Reactions', 45, 2, 'Chemistry', 'Sophia Rodriguez'),
     ('Graphic Design Fundamentals', 30, 1, 'Design', 'Liam Thompson');
 
-INSERT INTO enrollment (priority, discipline_id)
+INSERT INTO enrollment (priority, student_id, discipline_id)
 VALUES
-    ('yes', 1),
-    ('yes', 1),
-    ('no', 1);
+    ('yes', 1, 1),
+    ('yes', 2, 1),
+    ('no', 3, 1);
 
 INSERT INTO timeslot (begin_time, end_time, week_day, discipline_id)
 VALUES

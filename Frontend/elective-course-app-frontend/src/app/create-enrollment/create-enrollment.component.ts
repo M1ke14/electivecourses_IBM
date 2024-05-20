@@ -12,8 +12,8 @@ export class CreateEnrollmentComponent implements OnInit {
   enrollment: Enrollment = {
     id: undefined,
     priority: '',
-    student: '',
-    discipline: ''
+    studentName: '',
+    disciplineName: ''
   };
 
   constructor(private enrollmentService: EnrollmentService,

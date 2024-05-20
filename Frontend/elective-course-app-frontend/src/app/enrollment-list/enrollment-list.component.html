@@ -1,23 +1,23 @@
 <h2> Enrollment List </h2>
 <table class="table table-striped">
   <thead>
-    <tr>
-      <th> Priority </th>
-      <th> Student </th>
-      <th> Discipline </th>
-      <th> Action </th>
-    </tr>
+  <tr>
+    <th> Priority </th>
+    <th> Student </th>
+    <th> Discipline </th>
+    <th> Action </th>
+  </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let enrollment of enrollments">
-      <td> {{ enrollment.priority }} </td>
-      <td> {{ enrollment.student }} </td>
-      <td> {{ enrollment.discipline }} </td>
-      <td>
-        <button (click)="updateEnrollment(enrollment.id)" class="btn btn-info"> Update </button>
-        <button (click)="deleteEnrollment(enrollment.id)" class="btn btn-danger" style="margin-left: 10px"> Delete </button>
-        <button (click)="enrollmentDetails(enrollment.id)" class="btn btn-info" style="margin-left: 10px"> View </button>
-      </td>
-    </tr>
+  <tr *ngFor="let enrollment of enrollments">
+    <td> {{ enrollment.priority }} </td>
+    <td> {{ enrollment.studentName }} </td>
+    <td> {{ enrollment.disciplineName }} </td>
+    <td>
+      <button (click)="updateEnrollment(enrollment.id)" class="btn btn-info"> Update </button>
+      <button (click)="deleteEnrollment(enrollment.id)" class="btn btn-danger" style="margin-left: 10px"> Delete </button>
+      <button (click)="enrollmentDetails(enrollment.id)" class="btn btn-info" style="margin-left: 10px"> View </button>
+    </td>
+  </tr>
   </tbody>
 </table>
