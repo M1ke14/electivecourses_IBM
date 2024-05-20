@@ -12,13 +12,13 @@ import { DisciplineListComponent } from "./discipline-list/discipline-list.compo
 import { CreateDisciplineComponent } from "./create-discipline/create-discipline.component";
 import { UpdateDisciplineComponent } from "./update-discipline/update-discipline.component";
 import { DisciplineDetailsComponent } from "./discipline-details/discipline-details.component";
-import {LoginComponent} from "./login/login.component";
-import {AdminComponent} from "./admin/admin.component";
+import { ApplyListComponent } from './apply-list/apply-list.component'; // Import the ApplyListComponent
+import { LoginComponent } from "./login/login.component";
+import { AdminComponent } from "./admin/admin.component";
 
 const routes: Routes = [
   { path: 'admin', component: AdminComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'students', component: StudentListComponent },
   { path: 'students', component: StudentListComponent },
   { path: 'create-student', component: CreateStudentComponent },
   { path: 'update-student/:id', component: UpdateStudentComponent },
@@ -31,6 +31,7 @@ const routes: Routes = [
   { path: 'create-discipline', component: CreateDisciplineComponent },
   { path: 'update-discipline/:id', component: UpdateDisciplineComponent },
   { path: 'discipline-details/:id', component: DisciplineDetailsComponent },
+  { path: 'apply-list', component: ApplyListComponent }, // Add the route for ApplyListComponent
   { path: '', redirectTo: 'login', pathMatch: 'full' },
 ];
 
