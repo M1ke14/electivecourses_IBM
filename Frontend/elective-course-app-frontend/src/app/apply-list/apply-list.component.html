@@ -1,0 +1,26 @@
+<h2> Discipline List </h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th> Name </th>
+      <th> Max Students </th>
+      <th> Study Year </th>
+      <th> Category </th>
+      <th> Teacher </th>
+      <th> Action </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let discipline of disciplines">
+      <td> {{ discipline.name }} </td>
+      <td> {{ discipline.maxStudents }} </td>
+      <td> {{ discipline.studyYear }} </td>
+      <td> {{ discipline.category }} </td>
+      <td> {{ discipline.teacher }} </td>
+      <td>
+        <button (click)="applyToDiscipline(discipline.id)" class="btn btn-info"> Apply </button>
+        <button (click)="viewDiscipline(discipline.id)" class="btn btn-info" style="margin-left: 10px"> View </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
