@@ -1,33 +1,7 @@
-<nav class="navbar navbar-expand-sm bg-primary navbar-dark" id="hidden" *ngIf="showNavbar">
-  <ul class="navbar-nav">
-    <li class="nav-item">
-      <a routerLink="students" routerLinkActive="active" class="nav-link"> Student List </a>
-    </li>
-    <li class="nav-item">
-      <a routerLink="create-student" routerLinkActive="active" class="nav-link"> Add Student </a>
-    </li>
-    <li class="nav-item">
-      <a routerLink="disciplines" routerLinkActive="active" class="nav-link"> Discipline List </a>
-    </li>
-    <li class="nav-item">
-      <a routerLink="create-discipline" routerLinkActive="active" class="nav-link"> Add Discipline </a>
-    </li>
-    <li class="nav-item">
-      <a routerLink="enrollments" routerLinkActive="active" class="nav-link"> Enrollment List </a>
-    </li>
-    <li class="nav-item">
-      <a routerLink="create-enrollment" routerLinkActive="active" class="nav-link"> Add Enrollment </a>
-    </li>
-    <li class="nav-item">
-      <a routerLink="apply-list" routerLinkActive="active" class="nav-link"> Disciplines </a>
-    </li>
-  </ul>
-</nav>
-
-<h1 class="text-center">{{ title }}</h1>
 <div class="container">
   <router-outlet></router-outlet>
 </div>
+
 <footer class="footer">
   <div class="container">
   </div>
