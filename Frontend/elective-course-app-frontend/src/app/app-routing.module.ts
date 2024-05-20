@@ -14,24 +14,98 @@ import { UpdateDisciplineComponent } from "./update-discipline/update-discipline
 import { DisciplineDetailsComponent } from "./discipline-details/discipline-details.component";
 import {LoginComponent} from "./login/login.component";
 import {AdminComponent} from "./admin/admin.component";
+import {LoginlayoutComponent} from "./loginlayout/loginlayout.component";
+import {StudentLayoutComponent} from "./student-layout/student-layout.component";
+import {AdminLayoutComponent} from "./admin-layout/admin-layout.component";
 
 const routes: Routes = [
-  { path: 'admin', component: AdminComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'students', component: StudentListComponent },
-  { path: 'students', component: StudentListComponent },
-  { path: 'create-student', component: CreateStudentComponent },
-  { path: 'update-student/:id', component: UpdateStudentComponent },
+
+  {
+    path: 'create-student',
+    component: AdminLayoutComponent,
+    children: [
+      { path: '', component: CreateStudentComponent }
+    ]
+  },
+  {
+    path: 'students-details',
+    component: AdminLayoutComponent,
+    children: [
+      { path: '', component: StudentListComponent }
+    ]
+  },
+  {
+    path: 'update-student/:id',
+    component: AdminLayoutComponent,
+    children: [
+      { path: '', component: UpdateStudentComponent }
+    ]
+  },
   { path: 'student-details/:id', component: StudentDetailsComponent },
-  { path: 'enrollments', component: EnrollmentListComponent },
-  { path: 'create-enrollment', component: CreateEnrollmentComponent },
+  {
+    path: 'enrollments',
+    component: AdminLayoutComponent,
+    children: [
+      { path: '', component: EnrollmentListComponent }
+    ]
+  },
+  {
+    path: 'create-enrollment',
+    component: AdminLayoutComponent,
+    children: [
+      { path: '', component: CreateEnrollmentComponent }
+    ]
+  },
   { path: 'update-enrollment/:id', component: UpdateEnrollmentComponent },
   { path: 'enrollment-details/:id', component: EnrollmentDetailsComponent },
-  { path: 'disciplines', component: DisciplineListComponent },
-  { path: 'create-discipline', component: CreateDisciplineComponent },
-  { path: 'update-discipline/:id', component: UpdateDisciplineComponent },
-  { path: 'discipline-details/:id', component: DisciplineDetailsComponent },
+  {
+    path: 'disciplines',
+    component: AdminLayoutComponent,
+    children: [
+      { path: '', component: DisciplineListComponent }
+    ]
+  },
+  {
+    path: 'create-discipline',
+    component: AdminLayoutComponent,
+    children: [
+      { path: '', component: CreateDisciplineComponent }
+    ]
+  },
+  {
+    path: 'update-discipline/:id',
+    component: AdminLayoutComponent,
+    children: [
+      { path: '', component: UpdateDisciplineComponent }
+    ]
+  },
+  {
+    path: 'discipline-details/:id',
+    component: AdminLayoutComponent,
+    children: [
+      { path: '', component: DisciplineDetailsComponent }
+    ]
+  },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
+  {
+    path: 'login',
+    component: LoginlayoutComponent,
+    children: [
+      { path: '', component: LoginComponent }
+    ]
+  },
+  {
+    path: 'students',
+    component: StudentLayoutComponent,
+
+  },
+  {
+    path: 'admin',
+    component: AdminLayoutComponent,
+    children: [
+      { path: '', component: AdminComponent }
+    ]
+  }
 ];
 
 @NgModule({

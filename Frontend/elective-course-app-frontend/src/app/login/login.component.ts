@@ -16,10 +16,10 @@ export class LoginComponent implements OnInit {
   ngOnInit() {}
 
   loginAsStudent() {
-    this.router.navigate(['/admin'])
+    this.router.navigate(['/students'])
   }
 
   loginAsAdmin(){
-    this.router.navigate(['/students'])
+    this.router.navigate(['/admin'])
 }
 }

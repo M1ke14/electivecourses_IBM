@@ -19,6 +19,9 @@ import { DisciplineListComponent } from './discipline-list/discipline-list.compo
 import { UpdateDisciplineComponent } from './update-discipline/update-discipline.component';
 import {LoginComponent} from "./login/login.component";
 import {AdminComponent} from "./admin/admin.component";
+import { LoginlayoutComponent } from './loginlayout/loginlayout.component';
+import { StudentLayoutComponent } from './student-layout/student-layout.component';
+import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,10 @@ import {AdminComponent} from "./admin/admin.component";
     CreateDisciplineComponent,
     DisciplineDetailsComponent,
     DisciplineListComponent,
-    UpdateDisciplineComponent
+    UpdateDisciplineComponent,
+    LoginlayoutComponent,
+    StudentLayoutComponent,
+    AdminLayoutComponent
   ],
   imports: [
     BrowserModule,
