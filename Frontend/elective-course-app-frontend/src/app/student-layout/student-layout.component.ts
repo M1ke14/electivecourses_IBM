@@ -6,7 +6,7 @@ import {Component, OnInit} from '@angular/core';
   styleUrl: './student-layout.component.css'
 })
 export class StudentLayoutComponent implements OnInit{
-  title = 'Main Page';
+  title = 'Student Page';
 
   constructor() { }
 

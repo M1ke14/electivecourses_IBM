@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-<<<<<<< HEAD
   <component name="CompilerConfiguration">
     <annotationProcessing>
       <profile name="Maven default annotation processors profile" enabled="true">
@@ -15,9 +14,5 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="elecitve-courses-app-management" options="-parameters" />
     </option>
-=======
-  <component name="TypeScriptCompiler">
-    <option name="recompileOnChanges" value="true" />
->>>>>>> 082a718eba953c4f47bb1e5e5597fd290925fa19
   </component>
 </project>

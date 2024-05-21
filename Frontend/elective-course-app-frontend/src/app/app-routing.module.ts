@@ -17,6 +17,8 @@ import {AdminComponent} from "./admin/admin.component";
 import {LoginlayoutComponent} from "./loginlayout/loginlayout.component";
 import {StudentLayoutComponent} from "./student-layout/student-layout.component";
 import {AdminLayoutComponent} from "./admin-layout/admin-layout.component";
+import {ApplyListComponent} from "./apply-list/apply-list.component";
+import {Student} from "./student";
 
 const routes: Routes = [
 
@@ -105,7 +107,22 @@ const routes: Routes = [
     children: [
       { path: '', component: AdminComponent }
     ]
+  },
+  {
+    path: 'apply-list',
+    component: StudentLayoutComponent,
+    children: [
+      { path: '', component: ApplyListComponent }
+    ]
+  },
+  {
+    path: 'students',
+    component: StudentLayoutComponent,
+    children: [
+      { path: 'apply-list', component: ApplyListComponent } // Define route for apply-list under students
+    ]
   }
+
 ];
 
 @NgModule({

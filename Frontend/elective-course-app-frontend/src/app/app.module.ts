@@ -19,13 +19,15 @@ import { DisciplineListComponent } from './discipline-list/discipline-list.compo
 import { UpdateDisciplineComponent } from './update-discipline/update-discipline.component';
 import {LoginComponent} from "./login/login.component";
 import {AdminComponent} from "./admin/admin.component";
-import { ApplyListComponent } from './apply-list/apply-list.component';
+import { LoginlayoutComponent } from './loginlayout/loginlayout.component';
+import { StudentLayoutComponent } from './student-layout/student-layout.component';
+import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
+import {ApplyListComponent} from "./apply-list/apply-list.component";
 
 @NgModule({
   declarations: [
     AdminComponent,
     AppComponent,
-    LoginComponent,
     StudentListComponent,
     CreateStudentComponent,
     UpdateStudentComponent,
@@ -39,6 +41,9 @@ import { ApplyListComponent } from './apply-list/apply-list.component';
     DisciplineDetailsComponent,
     DisciplineListComponent,
     UpdateDisciplineComponent,
+    LoginlayoutComponent,
+    StudentLayoutComponent,
+    AdminLayoutComponent,
     ApplyListComponent
   ],
   imports: [
