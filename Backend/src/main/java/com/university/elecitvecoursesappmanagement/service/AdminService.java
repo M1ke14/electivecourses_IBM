@@ -17,4 +17,6 @@ public interface AdminService {
     void deleteAdminById(Long id);
 
     void deleteAllAdmins();
+
+    boolean loginAdmin(Admin admin);
 }
