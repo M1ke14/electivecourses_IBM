@@ -1,7 +1,8 @@
   import { Injectable } from '@angular/core';
-  import { HttpClient } from "@angular/common/http";
-  import { Observable } from "rxjs";
+  import {HttpClient, HttpHeaders} from "@angular/common/http";
+  import {catchError, map, Observable, tap, throwError} from "rxjs";
   import { Student } from "./student";
+  import {Admin} from "./admin";
 
   @Injectable({
     providedIn: 'root'
@@ -14,6 +15,7 @@
     private createURL = `${this.baseURL}/addStudent`;
     private updateURL = `${this.baseURL}/updateStudent`;
     private deleteURL= `${this.baseURL}/deleteStudentById`;
+    private loginURL = `${this.baseURL}/loginStudent`
 
     constructor(private httpClient: HttpClient) { }
 
@@ -37,5 +39,20 @@
 
     deleteStudent(id: number | undefined): Observable<Student> {
       return this.httpClient.delete<Student>(`${this.deleteURL}/${id}`);
+    }
+    loginStudent(student: Student): Observable<boolean> {
+      const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+      return this.httpClient.post<void>(this.loginURL, student, { headers, observe: 'response' }).pipe(
+        tap(response => {
+          if (response.status !== 200) {
+            throw new Error('Invalid response from server');
+          }
+        }),
+        map(response => true),
+        catchError(error => {
+          console.error('Error logging in:', error);
+          return throwError('Error logging in');
+        })
+      );
     }
   }

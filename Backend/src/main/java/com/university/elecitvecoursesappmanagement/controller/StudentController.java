@@ -1,6 +1,7 @@
 package com.university.elecitvecoursesappmanagement.controller;
 
 import com.university.elecitvecoursesappmanagement.dto.StudentDTO;
+import com.university.elecitvecoursesappmanagement.dto.StudentLoginDTO;
 import com.university.elecitvecoursesappmanagement.entity.Student;
 import com.university.elecitvecoursesappmanagement.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,6 +53,20 @@ public class StudentController {
             return ResponseEntity.ok().body(new StudentDTO(updatedStudent));
         } else {
             return ResponseEntity.notFound().build();
+        }
+    }
+
+    @PostMapping("/loginStudent")
+    public ResponseEntity<Void> login(@RequestBody StudentLoginDTO studentLoginDTO) {
+        Student student = new Student();
+        student.setId(studentLoginDTO.getId());
+        student.setName(studentLoginDTO.getName());
+
+        boolean isAuthenticated = studentService.loginStudent(student);
+        if (isAuthenticated) {
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
     }
 

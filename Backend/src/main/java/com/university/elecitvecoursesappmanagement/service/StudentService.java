@@ -17,4 +17,6 @@ public interface StudentService {
     void deleteStudentById(Long id);
 
     void deleteAllStudents();
+
+    boolean loginStudent(Student student);
 }
