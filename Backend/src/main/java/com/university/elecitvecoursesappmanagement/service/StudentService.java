@@ -18,5 +18,5 @@ public interface StudentService {
 
     void deleteAllStudents();
 
-    boolean loginStudent(Student student);
+    public Optional<Student> loginStudent(Student student);
 }

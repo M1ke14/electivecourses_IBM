@@ -5,6 +5,7 @@ import com.university.elecitvecoursesappmanagement.dto.StudentDTO;
 import com.university.elecitvecoursesappmanagement.entity.Discipline;
 import com.university.elecitvecoursesappmanagement.entity.Student;
 import com.university.elecitvecoursesappmanagement.service.implementation.DisciplineServiceImplementation;
+import com.university.elecitvecoursesappmanagement.service.implementation.StudentServiceImplementation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +20,7 @@ import java.util.stream.Collectors;
 public class DisciplineController {
     @Autowired
     private final DisciplineServiceImplementation disciplineService;
+    private StudentServiceImplementation studentService;
 
     public DisciplineController(DisciplineServiceImplementation disciplineService) {
         this.disciplineService = disciplineService;
@@ -46,8 +48,6 @@ public class DisciplineController {
         return ResponseEntity.status(HttpStatus.CREATED).body(new DisciplineDTO(addedDiscipline));
     }
 
-
-
     @PutMapping("/updateDiscipline/{id}")
     public ResponseEntity<DisciplineDTO> updateDiscipline(@PathVariable Long id, @RequestBody Discipline discipline) {
         Discipline updatedDiscipline = disciplineService.updateDiscipline(id, discipline);
@@ -61,7 +61,6 @@ public class DisciplineController {
     @DeleteMapping("/deleteDisciplineById/{id}")
     public ResponseEntity<Void> deleteDiscipline(@PathVariable Long id) {
         disciplineService.deleteDisciplineById(id);
-
         return ResponseEntity.noContent().build();
     }
 
@@ -69,5 +68,21 @@ public class DisciplineController {
     public ResponseEntity<Void> deleteAllStudents() {
         disciplineService.deleteAllDisciplines();
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/student-disciplines/{studentId}")
+    public ResponseEntity<List<DisciplineDTO>> getDisciplinesForStudent(@PathVariable Long studentId) {
+        Optional<Student> studentOptional = studentService.getStudentById(studentId);
+
+        if (studentOptional.isPresent()) {
+            Student student = studentOptional.get();
+            List<Discipline> disciplines = disciplineService.getDisciplinesForStudent(student);
+            List<DisciplineDTO> disciplineDTOs = disciplines.stream()
+                    .map(DisciplineDTO::new)
+                    .collect(Collectors.toList());
+            return ResponseEntity.ok(disciplineDTOs);
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
     }
 }

@@ -61,8 +61,12 @@ public class StudentServiceImplementation implements StudentService {
     }
 
     @Override
-    public boolean loginStudent(Student student) {
+    public Optional<Student> loginStudent(Student student) {
         Optional<Student> existingStudent = studentRepository.findById(student.getId());
-        return existingStudent.isPresent() && existingStudent.get().getName().equals(student.getName());
+        if (existingStudent.isPresent() && existingStudent.get().getName().equals(student.getName())) {
+            return existingStudent;
+        } else {
+            return Optional.empty();
+        }
     }
 }

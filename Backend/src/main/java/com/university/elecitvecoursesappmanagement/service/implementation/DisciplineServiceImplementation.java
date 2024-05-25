@@ -1,6 +1,7 @@
 package com.university.elecitvecoursesappmanagement.service.implementation;
 
 import com.university.elecitvecoursesappmanagement.entity.Discipline;
+import com.university.elecitvecoursesappmanagement.entity.Student;
 import com.university.elecitvecoursesappmanagement.repository.DisciplineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -58,5 +59,9 @@ public class DisciplineServiceImplementation implements com.university.elecitvec
     @Override
     public void deleteAllDisciplines() {
         disciplineRepository.deleteAll();
+    }
+
+    public List<Discipline> getDisciplinesForStudent(Student student) {
+        return disciplineRepository.findByStudyYearAndCategory(student.getStudyYear(), student.getFacultySection());
     }
 }

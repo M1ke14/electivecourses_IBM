@@ -2,6 +2,7 @@ package com.university.elecitvecoursesappmanagement.service.implementation;
 
 import com.university.elecitvecoursesappmanagement.entity.Admin;
 import com.university.elecitvecoursesappmanagement.repository.AdminRepository;
+import com.university.elecitvecoursesappmanagement.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class AdminServiceImplementation implements com.university.elecitvecoursesappmanagement.service.AdminService {
+public class AdminServiceImplementation implements AdminService {
     @Autowired
     private final AdminRepository adminRepository;
 
@@ -52,5 +53,11 @@ public class AdminServiceImplementation implements com.university.elecitvecourse
     @Override
     public void deleteAllAdmins() {
         adminRepository.deleteAll();
+    }
+
+    @Override
+    public boolean loginAdmin(Admin admin) {
+        Optional<Admin> existingAdmin = adminRepository.findById(admin.getId());
+        return existingAdmin.isPresent() && existingAdmin.get().getName().equals(admin.getName());
     }
 }

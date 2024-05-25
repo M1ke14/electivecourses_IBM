@@ -56,20 +56,6 @@ public class StudentController {
         }
     }
 
-    @PostMapping("/loginStudent")
-    public ResponseEntity<Void> login(@RequestBody StudentLoginDTO studentLoginDTO) {
-        Student student = new Student();
-        student.setId(studentLoginDTO.getId());
-        student.setName(studentLoginDTO.getName());
-
-        boolean isAuthenticated = studentService.loginStudent(student);
-        if (isAuthenticated) {
-            return ResponseEntity.ok().build();
-        } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
-        }
-    }
-
     @DeleteMapping("/deleteStudentById/{id}")
     public ResponseEntity<Void> deleteStudent(@PathVariable Long id) {
         studentService.deleteStudentById(id);
@@ -81,4 +67,20 @@ public class StudentController {
         studentService.deleteAllStudents();
         return ResponseEntity.noContent().build();
     }
+
+    @PostMapping("/loginStudent")
+    public ResponseEntity<StudentDTO> login(@RequestBody StudentLoginDTO studentLoginDTO) {
+        Student student = new Student();
+        student.setId(studentLoginDTO.getId());
+        student.setName(studentLoginDTO.getName());
+
+        Optional<Student> authenticatedStudent = studentService.loginStudent(student);
+        if (authenticatedStudent.isPresent()) {
+            StudentDTO studentDTO = new StudentDTO(authenticatedStudent.get());
+            return ResponseEntity.ok(studentDTO);
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+    }
+
 }
