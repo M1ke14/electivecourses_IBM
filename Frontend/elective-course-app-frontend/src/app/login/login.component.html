@@ -1,13 +1,14 @@
 <div class="col-md-6 offset-md-3">
   <div class="login-container">
-
-    <form id="login-form">
-      <input type="text" id="id" name="id" placeholder="ID" required>
-      <input type="text" id="name" name="name" placeholder="Name" required>
-
+    <form [formGroup]="loginForm"  id="login-form">
+      <div class="form-group">
+        <input type="text" id="id" formControlName="id" class="form-control" placeholder="ID" required>
+      </div>
+      <div class="form-group">
+        <input type="text" id="username" formControlName="username" class="form-control" placeholder="Name" required>
+      </div>
+      <button (click)="loginAsAdmin()" type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login as Admin</button>
     </form>
-    <button (click)="loginAsAdmin()" type="submit">Login as Admin</button>
-    <button  (click)="loginAsStudent()"  type="submit">Login as Student</button>
+    <button (click)="loginAsStudent()" class="btn btn-secondary" type="button">Login as Student</button>
   </div>
 </div>
-

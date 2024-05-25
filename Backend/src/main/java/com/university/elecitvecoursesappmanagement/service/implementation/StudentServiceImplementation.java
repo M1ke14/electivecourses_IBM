@@ -59,4 +59,10 @@ public class StudentServiceImplementation implements StudentService {
     public void deleteAllStudents() {
         studentRepository.deleteAll();
     }
+
+    @Override
+    public boolean loginStudent(Student student) {
+        Optional<Student> existingStudent = studentRepository.findById(student.getId());
+        return existingStudent.isPresent() && existingStudent.get().getName().equals(student.getName());
+    }
 }

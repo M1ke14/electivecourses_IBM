@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { StudentListComponent } from './student-list/student-list.component';
 import { HttpClientModule, HttpClient, HttpClientXsrfModule } from '@angular/common/http';
 import { CreateStudentComponent } from './create-student/create-student.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { UpdateStudentComponent } from './update-student/update-student.component';
 import { StudentDetailsComponent } from './student-details/student-details.component';
 import { LandingComponent } from './landing/landing.component';
@@ -43,6 +43,7 @@ import { InputSwitchModule } from 'primeng/inputswitch';
     CreateDisciplineComponent,
     DisciplineDetailsComponent,
     DisciplineListComponent,
+    LoginComponent,
     UpdateDisciplineComponent,
     LoginlayoutComponent,
     StudentLayoutComponent,
@@ -53,6 +54,7 @@ import { InputSwitchModule } from 'primeng/inputswitch';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
     HttpClientXsrfModule.withOptions({
       cookieName: 'XSRF-TOKEN',
       headerName: 'X-XSRF-TOKEN',

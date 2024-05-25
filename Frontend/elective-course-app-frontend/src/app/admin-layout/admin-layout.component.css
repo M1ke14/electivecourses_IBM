@@ -3,6 +3,16 @@
   right:    15px;
 
 }
+#show-enrollments{
+  background-color: green;
+  color: white;
+  margin-left:100px;
+  margin-right: 10px;
+}
+#hide-enrollments{
+  background-color: red;
+  color: white;
+}
 .navbar {
   position: fixed;
   top: 0;

@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {SharedService} from "../shared.service";
 
 @Component({
   selector: 'app-admin-layout',
@@ -7,8 +8,15 @@ import {Component, OnInit} from '@angular/core';
 })
 export class AdminLayoutComponent implements OnInit {
   title = 'Admin Page';
+  constructor(private sharedService: SharedService) {}
 
-  constructor() { }
+  showEnrollments() {
+    this.sharedService.setEnrollmentsVisible(true);
+  }
+
+  hideEnrollments() {
+    this.sharedService.setEnrollmentsVisible(false);
+  }
 
   ngOnInit(): void { }
 }

@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {SharedService} from "./shared.service";
 
 @Component({
   selector: 'app-root',
@@ -6,9 +7,6 @@ import {Component, OnInit} from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'elective-course-app-frontend';
-
-  showNavbar = true;
 
 
   }
