@@ -1,8 +1,8 @@
 INSERT INTO students (name, user_type, grade, study_year, faculty_section)
 VALUES
     ('Liam Thompson', 'student', 9, 1, 'Computer Science'),
-    ('Benjamin Davis', 'student', 9, 2, 'Biology'),
-    ('Sophia Rodriguez', 'student', 7, 3, 'Design');
+    ('Benjamin Davis', 'student', 9, 2, 'Natural Science'),
+    ('Sophia Rodriguez', 'student', 7, 3, 'Art');
 
 INSERT INTO admin (name, user_type)
 VALUES
@@ -11,10 +11,10 @@ VALUES
 
 INSERT INTO discipline (name, max_students, study_year, category, teacher)
 VALUES
-    ('Biology Basics', 40, 2, 'Life Sciences', 'Benjamin Davis'),
-    ('C++', 50, 3, 'Oriented programming', 'Emily Johnson'),
-    ('Chemical Reactions', 45, 2, 'Chemistry', 'Sophia Rodriguez'),
-    ('Graphic Design Fundamentals', 30, 1, 'Design', 'Liam Thompson');
+    ('Biology Basics', 40, 2, 'Natural Science', 'Benjamin Davis'),
+    ('C++', 50, 3, 'Computer Science', 'Emily Johnson'),
+    ('Chemical Reactions', 45, 2, 'Natural Science', 'Sophia Rodriguez'),
+    ('Graphic Design Fundamentals', 30, 1, 'Art', 'Liam Thompson');
 
 INSERT INTO enrollment (priority, student_id, discipline_id)
 VALUES

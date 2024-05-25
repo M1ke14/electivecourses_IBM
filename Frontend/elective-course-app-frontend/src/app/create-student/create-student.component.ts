@@ -37,7 +37,7 @@ export class CreateStudentComponent implements OnInit{
   }
 
   goToStudentList() {
-    this.router.navigate(['/students']);
+    this.router.navigate(['/students-details']);
   }
 
   onSubmit() {

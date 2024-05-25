@@ -24,6 +24,9 @@ import { StudentLayoutComponent } from './student-layout/student-layout.componen
 import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
 import {ApplyListComponent} from "./apply-list/apply-list.component";
 
+import { TableModule } from 'primeng/table';
+import { InputSwitchModule } from 'primeng/inputswitch';
+
 @NgModule({
   declarations: [
     AdminComponent,
@@ -44,7 +47,7 @@ import {ApplyListComponent} from "./apply-list/apply-list.component";
     LoginlayoutComponent,
     StudentLayoutComponent,
     AdminLayoutComponent,
-    ApplyListComponent
+    ApplyListComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +58,8 @@ import {ApplyListComponent} from "./apply-list/apply-list.component";
       headerName: 'X-XSRF-TOKEN',
     }),
     FormsModule,
+    TableModule,
+    InputSwitchModule,
   ],
   providers: [
     { provide: HttpClient, useClass: HttpClient },

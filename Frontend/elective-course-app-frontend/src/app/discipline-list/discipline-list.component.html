@@ -1,27 +1,36 @@
 <h2> Discipline List </h2>
-<table class="table table-striped">
-  <thead>
+<p-table [value]="disciplines" [filters]="filters">
+  <ng-template pTemplate="header">
     <tr>
-      <th> Name </th>
-      <th> Max Students </th>
-      <th> Study Year </th>
-      <th> Category </th>
-      <th> Teacher </th>
+      <th> Name
+        <p-columnFilter type="text" field="name" placeholder="Search by name"></p-columnFilter>
+      </th>
+      <th> Max Students
+        <p-columnFilter type="text" field="grade" placeholder="Search by the maximal number of students"></p-columnFilter>
+      </th>
+      <th> Study Year
+        <p-columnFilter type="text" field="studyYear" placeholder="Search by study year"></p-columnFilter>
+      </th>
+      <th> Category
+        <p-columnFilter type="text" field="facultySection" placeholder="Search by category section"></p-columnFilter>
+      </th>
+      <th> Teacher
+        <p-columnFilter type="text" field="facultySection" placeholder="Search by teacher"></p-columnFilter>
+      </th>
       <th> Action </th>
     </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let discipline of disciplines">
+  </ng-template>
+  <ng-template pTemplate="body" let-discipline>
+    <tr>
       <td> {{ discipline.name }} </td>
       <td> {{ discipline.maxStudents }} </td>
       <td> {{ discipline.studyYear }} </td>
       <td> {{ discipline.category }} </td>
-      <td> {{ discipline.teacher }} </td>
       <td>
         <button (click)="updateDiscipline(discipline.id)" class="btn btn-info"> Update </button>
         <button (click)="deleteDiscipline(discipline.id)" class="btn btn-danger" style="margin-left: 10px"> Delete </button>
         <button (click)="disciplineDetails(discipline.id)" class="btn btn-info" style="margin-left: 10px"> View </button>
       </td>
     </tr>
-  </tbody>
-</table>
+  </ng-template>
+</p-table>

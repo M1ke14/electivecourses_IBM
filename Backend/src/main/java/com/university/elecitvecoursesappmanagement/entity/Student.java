@@ -16,7 +16,7 @@ public class Student extends User {
     @Column
     private String facultySection;
 
-    @OneToMany(mappedBy = "student")
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Enrollment> enrollments;
 
     public Student() {

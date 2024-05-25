@@ -1,16 +1,24 @@
 <h2> Student List </h2>
-<table class = "table table-striped">
-  <thead>
+<p-table [value]="students" [filters]="filters">
+  <ng-template pTemplate="header">
     <tr>
-      <th> Name </th>
-      <th> Grade </th>
-      <th> Study Year </th>
-      <th> Faculty Section </th>
+      <th> Name
+        <p-columnFilter type="text" field="name" placeholder="Search by name"></p-columnFilter>
+      </th>
+      <th> Grade
+        <p-columnFilter type="text" field="grade" placeholder="Search by grade"></p-columnFilter>
+      </th>
+      <th> Study Year
+        <p-columnFilter type="text" field="studyYear" placeholder="Search by study year"></p-columnFilter>
+      </th>
+      <th> Faculty Section
+        <p-columnFilter type="text" field="facultySection" placeholder="Search by faculty section"></p-columnFilter>
+      </th>
       <th> Action </th>
     </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let student of students">
+  </ng-template>
+  <ng-template pTemplate="body" let-student>
+    <tr>
       <td> {{ student.name }} </td>
       <td> {{ student.grade }} </td>
       <td> {{ student.studyYear }} </td>
@@ -21,5 +29,5 @@
         <button (click)="studentDetails(student.id)" class="btn btn-info" style="margin-left: 10px"> View </button>
       </td>
     </tr>
-  </tbody>
-</table>
+  </ng-template>
+</p-table>

@@ -6,4 +6,5 @@ export class Discipline {
     category: string | undefined;
     teacher: string | undefined;
     enrollments?: any[] | undefined;
-  }
+    [key: string]: any;
+}

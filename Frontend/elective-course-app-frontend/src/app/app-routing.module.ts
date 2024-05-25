@@ -58,8 +58,15 @@ const routes: Routes = [
       { path: '', component: CreateEnrollmentComponent }
     ]
   },
-  { path: 'update-enrollment/:id', component: UpdateEnrollmentComponent },
-  { path: 'enrollment-details/:id', component: EnrollmentDetailsComponent },
+  { path: 'update-enrollment/:id',
+    component: AdminLayoutComponent,
+    children: [
+      { path: '', component: UpdateEnrollmentComponent}
+    ]
+  },
+  { path: 'enrollment-details/:id',
+    component: EnrollmentDetailsComponent
+  },
   {
     path: 'disciplines',
     component: AdminLayoutComponent,

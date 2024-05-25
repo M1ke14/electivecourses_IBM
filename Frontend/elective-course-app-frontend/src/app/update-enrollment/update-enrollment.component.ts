@@ -44,7 +44,6 @@ export class UpdateEnrollmentComponent implements OnInit {
       },
       error => {
         console.error('Error updating enrollment:', error);
-        // Handle error, e.g., display error message to the user
       }
     );
   }

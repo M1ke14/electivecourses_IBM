@@ -7,4 +7,5 @@ export class Student {
     studyYear: number | undefined;
     facultySection: String | undefined;
     enrollment: any[] | undefined;
+    [key: string]: any;
 }

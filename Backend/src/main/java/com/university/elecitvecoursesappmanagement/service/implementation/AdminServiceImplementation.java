@@ -53,4 +53,10 @@ public class AdminServiceImplementation implements com.university.elecitvecourse
     public void deleteAllAdmins() {
         adminRepository.deleteAll();
     }
+
+    @Override
+    public boolean loginAdmin(Admin admin) {
+        Optional<Admin> existingAdmin = adminRepository.findById(admin.getId());
+        return existingAdmin.isPresent() && existingAdmin.get().getName().equals(admin.getName());
+    }
 }
