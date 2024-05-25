@@ -1,4 +1,5 @@
 <h2> Subjects </h2>
+<div *ngIf="enrollmentsVisible">
 <table class="table table-striped">
   <thead>
     <tr>
@@ -24,3 +25,8 @@
     </tr>
   </tbody>
 </table>
+</div>
+<div *ngIf="!enrollmentsVisible">
+ <h2> You can't apply anymore</h2>
+</div>
+
