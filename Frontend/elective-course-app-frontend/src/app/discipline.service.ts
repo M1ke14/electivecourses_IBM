@@ -14,6 +14,7 @@ export class DisciplineService {
   private createURL = `${this.baseURL}/addDiscipline`;
   private updateURL = `${this.baseURL}/updateDiscipline`;
   private deleteURL= `${this.baseURL}/deleteDisciplineById`;
+  private disciplinesForStudentURL=`${this.baseURL}/student-disciplines`;
 
   constructor(private httpClient: HttpClient) { }
 
@@ -35,5 +36,9 @@ export class DisciplineService {
 
   deleteDiscipline(id: number | undefined): Observable<Discipline> {
     return this.httpClient.delete<Discipline>(`${this.deleteURL}/${id}`);
+  }
+
+  getDisciplinesForStudent(studentId: number): Observable<Discipline[]> {
+    return this.httpClient.get<Discipline[]>(`${this.disciplinesForStudentURL}/${studentId}`);
   }
 }
