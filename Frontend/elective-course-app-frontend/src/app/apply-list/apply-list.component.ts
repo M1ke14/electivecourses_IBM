@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Discipline } from "../discipline";
 import { DisciplineService } from "../discipline.service";
 import { Router } from "@angular/router";
-import {SharedService} from "../shared.service";
+import { SharedService } from "../shared.service";
 
 @Component({
   selector: 'app-apply-list',
