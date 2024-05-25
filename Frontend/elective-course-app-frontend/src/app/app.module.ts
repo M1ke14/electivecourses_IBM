@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { StudentListComponent } from './student-list/student-list.component';
 import { HttpClientModule, HttpClient, HttpClientXsrfModule } from '@angular/common/http';
 import { CreateStudentComponent } from './create-student/create-student.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { UpdateStudentComponent } from './update-student/update-student.component';
 import { StudentDetailsComponent } from './student-details/student-details.component';
 import { LandingComponent } from './landing/landing.component';
@@ -22,9 +22,10 @@ import {AdminComponent} from "./admin/admin.component";
 import { LoginlayoutComponent } from './loginlayout/loginlayout.component';
 import { StudentLayoutComponent } from './student-layout/student-layout.component';
 import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
-import {ApplyListComponent} from "./apply-list/apply-list.component";
+import { ApplyListComponent } from "./apply-list/apply-list.component";
 
 import { TableModule } from 'primeng/table';
+import { ButtonModule } from 'primeng/button';
 import { InputSwitchModule } from 'primeng/inputswitch';
 
 @NgModule({
@@ -62,6 +63,7 @@ import { InputSwitchModule } from 'primeng/inputswitch';
     FormsModule,
     TableModule,
     InputSwitchModule,
+    ButtonModule,
   ],
   providers: [
     { provide: HttpClient, useClass: HttpClient },

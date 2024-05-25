@@ -1,33 +1,39 @@
-<h2> Student List </h2>
+<h2>Student List</h2>
 <p-table [value]="students" [filters]="filters">
   <ng-template pTemplate="header">
     <tr>
-      <th> Name
-        <p-columnFilter type="text" field="name" placeholder="Search by name"></p-columnFilter>
-      </th>
-      <th> Grade
-        <p-columnFilter type="text" field="grade" placeholder="Search by grade"></p-columnFilter>
-      </th>
-      <th> Study Year
-        <p-columnFilter type="text" field="studyYear" placeholder="Search by study year"></p-columnFilter>
-      </th>
-      <th> Faculty Section
-        <p-columnFilter type="text" field="facultySection" placeholder="Search by faculty section"></p-columnFilter>
-      </th>
-      <th> Action </th>
+      <th>Name<p-columnFilter type="text" field="name" placeholder="Search by name"></p-columnFilter></th>
+      <th>Grade<p-columnFilter type="text" field="grade" placeholder="Search by grade"></p-columnFilter></th>
+      <th>Study Year<p-columnFilter type="text" field="studyYear" placeholder="Search by study year"></p-columnFilter></th>
+      <th>Faculty Section<p-columnFilter type="text" field="facultySection" placeholder="Search by faculty section"></p-columnFilter></th>
+      <th>Action</th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-student>
     <tr>
-      <td> {{ student.name }} </td>
-      <td> {{ student.grade }} </td>
-      <td> {{ student.studyYear }} </td>
-      <td> {{ student.facultySection }} </td>
-      <td>
-        <button (click)="updateStudent(student.id)" class="btn btn-info"> Update </button>
-        <button (click)="deleteStudent(student.id)" class="btn btn-danger" style="margin-left: 10px"> Delete </button>
-        <button (click)="studentDetails(student.id)" class="btn btn-info" style="margin-left: 10px"> View </button>
+      <td>{{ student.name }}</td>
+      <td>{{ student.grade }}</td>
+      <td>{{ student.studyYear }}</td>
+      <td>{{ student.facultySection }}</td>
+      <td class="button-group">
+        <button pButton icon="pi pi-pencil" class="p-button p-button-info" (click)="updateStudent(student.id)" [rounded]="true"></button>
+        <button pButton icon="pi pi-times" class="p-button p-button-danger" (click)="deleteStudent(student.id)" style="margin-left: 5px" [rounded]="true"></button>
+        <button pButton icon="pi pi-eye" class="p-button p-button-info" (click)="studentDetails(student.id)" style="margin-left: 5px" [rounded]="true"></button>
       </td>
     </tr>
   </ng-template>
 </p-table>
+
+<style>
+  th, td {
+    padding: 5px 8px;
+    font-size: 0.9em;
+  }
+  .button-group {
+    display: flex;
+    align-items: center;
+  }
+  .button-group button {
+    margin-right: 5px;
+  }
+</style>
