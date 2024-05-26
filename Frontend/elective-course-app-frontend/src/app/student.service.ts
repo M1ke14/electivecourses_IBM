@@ -40,19 +40,15 @@
     deleteStudent(id: number | undefined): Observable<Student> {
       return this.httpClient.delete<Student>(`${this.deleteURL}/${id}`);
     }
-    loginStudent(student: Student): Observable<boolean> {
+
+    loginStudent(student: Student): Observable<Student | null> {
       const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-      return this.httpClient.post<void>(this.loginURL, student, { headers, observe: 'response' }).pipe(
-        tap(response => {
-          if (response.status !== 200) {
-            throw new Error('Invalid response from server');
-          }
-        }),
-        map(response => true),
-        catchError(error => {
-          console.error('Error logging in:', error);
-          return throwError('Error logging in');
-        })
+      return this.httpClient.post<Student>(this.loginURL, student, { headers }).pipe(
+          catchError(error => {
+            console.error('Error logging in:', error);
+            return throwError('Error logging in');
+          })
       );
     }
+
   }

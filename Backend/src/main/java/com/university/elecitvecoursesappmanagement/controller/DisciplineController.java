@@ -20,8 +20,11 @@ import java.util.stream.Collectors;
 public class DisciplineController {
     @Autowired
     private final DisciplineServiceImplementation disciplineService;
+
+    @Autowired
     private StudentServiceImplementation studentService;
 
+    @Autowired
     public DisciplineController(DisciplineServiceImplementation disciplineService) {
         this.disciplineService = disciplineService;
     }
@@ -72,17 +75,17 @@ public class DisciplineController {
 
     @GetMapping("/student-disciplines/{studentId}")
     public ResponseEntity<List<DisciplineDTO>> getDisciplinesForStudent(@PathVariable Long studentId) {
-        Optional<Student> studentOptional = studentService.getStudentById(studentId);
-
-        if (studentOptional.isPresent()) {
-            Student student = studentOptional.get();
+        Optional<Student> studentOpt = studentService.getStudentById(studentId);
+        if (studentOpt.isPresent()) {
+            Student student = studentOpt.get();
             List<Discipline> disciplines = disciplineService.getDisciplinesForStudent(student);
             List<DisciplineDTO> disciplineDTOs = disciplines.stream()
                     .map(DisciplineDTO::new)
                     .collect(Collectors.toList());
             return ResponseEntity.ok(disciplineDTOs);
         } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+            return ResponseEntity.notFound().build();
         }
     }
+
 }

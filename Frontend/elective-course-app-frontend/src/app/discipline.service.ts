@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
+import {catchError, Observable, tap, throwError} from "rxjs";
 import { Discipline } from "./discipline";
 
 @Injectable({
@@ -39,6 +39,13 @@ export class DisciplineService {
   }
 
   getDisciplinesForStudent(studentId: number): Observable<Discipline[]> {
-    return this.httpClient.get<Discipline[]>(`${this.disciplinesForStudentURL}/${studentId}`);
+    console.log(`Fetching disciplines for studentId: ${studentId}`);
+    return this.httpClient.get<Discipline[]>(`${this.disciplinesForStudentURL}/${studentId}`).pipe(
+        tap(data => console.log('Received disciplines:', data)), // Add this console log
+        catchError(error => {
+          console.error('Error fetching disciplines:', error);
+          return throwError(error);
+        })
+    );
   }
 }

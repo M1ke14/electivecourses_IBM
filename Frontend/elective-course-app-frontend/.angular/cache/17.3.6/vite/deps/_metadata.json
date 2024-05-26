@@ -1,94 +1,94 @@
 {
-  "hash": "603b6cbe",
-  "configHash": "04732817",
+  "hash": "c01a5404",
+  "configHash": "83f657c2",
   "lockfileHash": "f7a729d6",
-  "browserHash": "c2c32426",
+  "browserHash": "fc13de64",
   "optimized": {
     "@angular/common": {
       "src": "../../../../../node_modules/@angular/common/fesm2022/common.mjs",
       "file": "@angular_common.js",
-      "fileHash": "f57cf3a3",
+      "fileHash": "f71d31b0",
       "needsInterop": false
     },
     "@angular/common/http": {
       "src": "../../../../../node_modules/@angular/common/fesm2022/http.mjs",
       "file": "@angular_common_http.js",
-      "fileHash": "554581ac",
+      "fileHash": "f8b42867",
       "needsInterop": false
     },
     "@angular/core": {
       "src": "../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "d8f1e918",
+      "fileHash": "22a2af43",
       "needsInterop": false
     },
     "@angular/forms": {
       "src": "../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
       "file": "@angular_forms.js",
-      "fileHash": "c420b31a",
+      "fileHash": "92c5cfcc",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "04eb56af",
+      "fileHash": "d168f7fe",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "1cc92345",
+      "fileHash": "af674b90",
       "needsInterop": false
     },
     "primeng/api": {
       "src": "../../../../../node_modules/primeng/fesm2022/primeng-api.mjs",
       "file": "primeng_api.js",
-      "fileHash": "24d3f15f",
-      "needsInterop": false
-    },
-    "primeng/inputswitch": {
-      "src": "../../../../../node_modules/primeng/fesm2022/primeng-inputswitch.mjs",
-      "file": "primeng_inputswitch.js",
-      "fileHash": "f37441a6",
-      "needsInterop": false
-    },
-    "primeng/table": {
-      "src": "../../../../../node_modules/primeng/fesm2022/primeng-table.mjs",
-      "file": "primeng_table.js",
-      "fileHash": "c5b1417f",
-      "needsInterop": false
-    },
-    "rxjs": {
-      "src": "../../../../../node_modules/rxjs/dist/esm5/index.js",
-      "file": "rxjs.js",
-      "fileHash": "a3a2e017",
+      "fileHash": "0ca86292",
       "needsInterop": false
     },
     "primeng/button": {
       "src": "../../../../../node_modules/primeng/fesm2022/primeng-button.mjs",
       "file": "primeng_button.js",
-      "fileHash": "6e882f01",
+      "fileHash": "d497e8de",
+      "needsInterop": false
+    },
+    "primeng/inputswitch": {
+      "src": "../../../../../node_modules/primeng/fesm2022/primeng-inputswitch.mjs",
+      "file": "primeng_inputswitch.js",
+      "fileHash": "366cb34b",
+      "needsInterop": false
+    },
+    "primeng/table": {
+      "src": "../../../../../node_modules/primeng/fesm2022/primeng-table.mjs",
+      "file": "primeng_table.js",
+      "fileHash": "0e3e4fe8",
+      "needsInterop": false
+    },
+    "rxjs": {
+      "src": "../../../../../node_modules/rxjs/dist/esm5/index.js",
+      "file": "rxjs.js",
+      "fileHash": "f9e1fa85",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-QBAYFFP2": {
-      "file": "chunk-QBAYFFP2.js"
-    },
     "chunk-JMMKLQ3F": {
       "file": "chunk-JMMKLQ3F.js"
-    },
-    "chunk-M3TVTXQS": {
-      "file": "chunk-M3TVTXQS.js"
     },
     "chunk-IUWRRQRH": {
       "file": "chunk-IUWRRQRH.js"
     },
+    "chunk-GDOZS2MA": {
+      "file": "chunk-GDOZS2MA.js"
+    },
+    "chunk-XYPDH6DS": {
+      "file": "chunk-XYPDH6DS.js"
+    },
     "chunk-VWBFN3XY": {
       "file": "chunk-VWBFN3XY.js"
     },
-    "chunk-AK6LR3SX": {
-      "file": "chunk-AK6LR3SX.js"
+    "chunk-3MEQIEQ5": {
+      "file": "chunk-3MEQIEQ5.js"
     },
     "chunk-TELBTXJ5": {
       "file": "chunk-TELBTXJ5.js"

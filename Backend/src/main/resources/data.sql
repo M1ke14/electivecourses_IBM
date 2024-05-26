@@ -11,10 +11,10 @@ VALUES
 
 INSERT INTO discipline (name, max_students, study_year, category, teacher)
 VALUES
-    ('Biology Basics', 40, 2, 'Natural Science', 'Benjamin Davis'),
-    ('C++', 50, 3, 'Computer Science', 'Emily Johnson'),
+    ('Biology Basics', 40, 2, 'Natural Science', 'Dragomir Oana'),
+    ('C++', 50, 1, 'Computer Science', 'Emily Johnson'),
     ('Chemical Reactions', 45, 2, 'Natural Science', 'Sophia Rodriguez'),
-    ('Graphic Design Fundamentals', 30, 1, 'Art', 'Liam Thompson');
+    ('Graphic Design Fundamentals', 30, 3, 'Art', 'Liam Thompson');
 
 INSERT INTO enrollment (priority, student_id, discipline_id)
 VALUES
