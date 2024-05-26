@@ -1,31 +1,53 @@
 <h2> Subjects </h2>
-<div *ngIf="enrollmentsVisible">
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th> Name </th>
-      <th> Max Students </th>
-      <th> Study Year </th>
-      <th> Category </th>
-      <th> Teacher </th>
-      <th> Action </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let discipline of disciplines">
-      <td> {{ discipline.name }} </td>
-      <td> {{ discipline.maxStudents }} </td>
-      <td> {{ discipline.studyYear }} </td>
-      <td> {{ discipline.category }} </td>
-      <td> {{ discipline.teacher }} </td>
-      <td>
-        <button (click)="viewDiscipline(discipline.id)" class="btn btn-info" style="margin-left: 10px"> View </button>
-      </td>
-    </tr>
-  </tbody>
-</table>
-</div>
 <div *ngIf="!enrollmentsVisible">
- <h2> You can't apply anymore</h2>
+  <p-table [value]="disciplines" [scrollable]="true" scrollHeight="400px">
+    <ng-template pTemplate="header">
+      <tr>
+        <th> Name </th>
+        <th> Max Students </th>
+        <th> Study Year </th>
+        <th> Category </th>
+        <th> Teacher </th>
+        <th> Action </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-discipline let-rowIndex="rowIndex">
+      <tr pDraggable="disciplines" pDroppable="disciplines" (onDragStart)="dragStart(discipline)" (onDrop)="drop($event, rowIndex)" (onDragOver)="dragOver($event)" [dragEffect]="'move'" [dropEffect]="'move'">
+        <td>{{ discipline.name }}</td>
+        <td>{{ discipline.maxStudents }}</td>
+        <td>{{ discipline.studyYear }}</td>
+        <td>{{ discipline.category }}</td>
+        <td>{{ discipline.teacher }}</td>
+        <td>
+          <button (click)="viewDiscipline(discipline.id)" class="btn btn-info" style="margin-left: 10px"> View </button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+<div >
+  <h2>Current Positions</h2>
+  <ul>
+    <li *ngFor="let position of getPositions()">
+      Discipline ID: {{ position.id }}, Position: {{ position.position }}
+    </li>
+  </ul>
 </div>
 
+<div *ngIf="enrollmentsVisible">
+  <h2> You can't apply anymore</h2>
+</div>
+
+<style>
+  th, td {
+    padding: 5px 8px;
+    font-size: 0.9em;
+  }
+  .button-group {
+    display: flex;
+    align-items: center;
+  }
+  .button-group button {
+    margin-right: 5px;
+  }
+</style>
