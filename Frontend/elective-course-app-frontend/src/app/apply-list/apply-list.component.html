@@ -35,7 +35,25 @@
 </div>
 
 <div *ngIf="enrollmentsVisible">
-  <h2> You can't apply anymore</h2>
+
+    <h2>Enrolled Subjects</h2>
+    <table>
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Year</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let discipline of enrolledDisciplines">
+        <td>{{ discipline.id }}</td>
+        <td>{{ discipline.name }}</td>
+        <td>{{ discipline.studyYear }}</td>
+      </tr>
+      </tbody>
+    </table>
+
 </div>
 
 <style>
