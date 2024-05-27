@@ -22,7 +22,8 @@ export class ApplyListComponent implements OnInit {
     private router: Router,
     private sharedService: SharedService,
     private studentService: StudentService
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.fetchDisciplines();
@@ -97,28 +98,42 @@ export class ApplyListComponent implements OnInit {
       return;
     }
 
+    // Fetch student details to get the current study year
+    this.studentService.getStudentById(this.studentId).subscribe(student => {
+      const studentYear = student.studyYear;
 
-    // Separate disciplines by year
-    const yearOneDisciplines = this.disciplines.filter(discipline => discipline.studyYear === 1);
-    const yearTwoDisciplines = this.disciplines.filter(discipline => discipline.studyYear === 2);
-    const yearThreeDisciplines = this.disciplines.filter(discipline => discipline.studyYear === 3);
+      // Sort disciplines by grade before filtering by study year
+     // this.disciplines.sort((a, b) => (b.grade || 0) - (a.grade || 0));
 
-    // Select top disciplines based on the priority
-    const selectedDisciplines = [
-      ...yearOneDisciplines.slice(0, 1), // One subject from year one
-      ...yearTwoDisciplines.slice(0, 2), // Two subjects from year two
-      ...yearThreeDisciplines.slice(0, 3) // Three subjects from year three
-    ];
+      let selectedDisciplines: Discipline[] = [];
 
-    // Clear the current enrolledDisciplines
-    this.enrolledDisciplines = [];
-
-    // Enroll the student in selected disciplines
-    selectedDisciplines.forEach(discipline => {
-      if (discipline.maxStudents != null && discipline.maxStudents > 0 && !this.enrollmentsVisible) {
-        discipline.maxStudents -= 1;
-        this.enrolledDisciplines.push(discipline); // Add to enrolled list
+      if (studentYear === 1) {
+        // Select top discipline from year one
+        const yearOneDisciplines = this.disciplines.filter(discipline => discipline.studyYear === 1);
+        selectedDisciplines = yearOneDisciplines.slice(0, 1);
+      } else if (studentYear === 2) {
+        // Select top two disciplines from year two
+        const yearTwoDisciplines = this.disciplines.filter(discipline => discipline.studyYear === 2);
+        selectedDisciplines = yearTwoDisciplines.slice(0, 2);
+      } else if (studentYear === 3) {
+        // Select top three disciplines from year three
+        const yearThreeDisciplines = this.disciplines.filter(discipline => discipline.studyYear === 3);
+        selectedDisciplines = yearThreeDisciplines.slice(0, 3);
       }
+
+      // Clear the current enrolledDisciplines
+      this.enrolledDisciplines = [];
+
+      // Enroll the student in selected disciplines
+      selectedDisciplines.forEach(discipline => {
+        if (discipline.maxStudents != null && discipline.maxStudents > 0 && !this.enrollmentsVisible) {
+          discipline.maxStudents -= 1;
+          this.enrolledDisciplines.push(discipline); // Add to enrolled list
+        }
+      });
+    }, error => {
+      console.error('Error fetching student details:', error);
     });
   }
+
 }
