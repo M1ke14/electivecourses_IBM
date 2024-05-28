@@ -1,5 +1,6 @@
-<h2> Subjects </h2>
-<div *ngIf="!enrollmentsVisible">
+
+<div *ngIf="enrollmentsVisible">
+  <h2> Subjects </h2>
   <p-table [value]="disciplines" [scrollable]="true" scrollHeight="400px">
     <ng-template pTemplate="header">
       <tr>
@@ -12,7 +13,7 @@
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-discipline let-rowIndex="rowIndex">
-      <tr pDraggable="disciplines" pDroppable="disciplines" (onDragStart)="dragStart(discipline)" (onDrop)="drop($event, rowIndex)" (onDragOver)="dragOver($event)" [dragEffect]="'move'" [dropEffect]="'move'">
+      <tr pDraggable="disciplines" pDroppable="disciplines" (onDragStart)="dragStart(discipline)" (onDrop)="drop($event, rowIndex)"  [dragEffect]="'move'" [dropEffect]="'move'">
         <td>{{ discipline.name }}</td>
         <td>{{ discipline.maxStudents }}</td>
         <td>{{ discipline.studyYear }}</td>
@@ -25,36 +26,47 @@
     </ng-template>
   </p-table>
 </div>
-<div >
-  <h2>Current Positions</h2>
-  <ul>
-    <li *ngFor="let position of getPositions()">
-      Discipline ID: {{ position.id }}, Position: {{ position.position }}
-    </li>
-  </ul>
-</div>
 
 <div *ngIf="!enrollmentsVisible">
-
-    <h2>Enrolled Subjects</h2>
-    <table>
-      <thead>
+  <h2>Enrolled Subjects</h2>
+  <table>
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Year</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <ng-container *ngFor="let discipline of enrolledDisciplines">
       <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Year</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let discipline of enrolledDisciplines">
         <td>{{ discipline.id }}</td>
         <td>{{ discipline.name }}</td>
         <td>{{ discipline.studyYear }}</td>
+        <td>
+          <p-button (click)="filterEnrollmentsByDiscipline(discipline.name); studentEnrolled()">View Enrolled Students</p-button>
+        </td>
+        
+        <h3>Enrolled Students:</h3>
+        <ul>
+          <li *ngFor="let student of filteredStudent ">
+            {{student.name}}
+          </li>
+        </ul>
       </tr>
-      </tbody>
-    </table>
 
+    </ng-container>
+    </tbody>
+  </table>
 </div>
+
+
+
+
+
+
+
 
 <style>
   th, td {

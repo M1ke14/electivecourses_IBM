@@ -28,6 +28,7 @@ import { ApplyListComponent } from "./apply-list/apply-list.component";
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { InputSwitchModule } from 'primeng/inputswitch';
+import {DialogModule} from "primeng/dialog";
 
 @NgModule({
   declarations: [
@@ -52,21 +53,22 @@ import { InputSwitchModule } from 'primeng/inputswitch';
     AdminLayoutComponent,
     ApplyListComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    HttpClientXsrfModule.withOptions({
-      cookieName: 'XSRF-TOKEN',
-      headerName: 'X-XSRF-TOKEN',
-    }),
-    DragDropModule,
-    FormsModule,
-    TableModule,
-    InputSwitchModule,
-    ButtonModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        HttpClientXsrfModule.withOptions({
+            cookieName: 'XSRF-TOKEN',
+            headerName: 'X-XSRF-TOKEN',
+        }),
+        DragDropModule,
+        FormsModule,
+        TableModule,
+        InputSwitchModule,
+        ButtonModule,
+        DialogModule,
+    ],
   providers: [
     { provide: HttpClient, useClass: HttpClient },
   ],
